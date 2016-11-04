@@ -11,9 +11,21 @@
 		<form action="quests.html">
 			<button>Quests</button>
 		</form>
-		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+		<div data-ng-app="myApp" data-ng-controller="PostsCtrl">
+			<ul>
+				<li ng-repeat="item in response track by $index">
+					{{item}}
+				</li>
+			</ul>
+		</div>
+		
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+		<script src="questlist.js"></script>
 		<script>
-			
+			var app = angular.module("myApp", []);
+			app.controller('PostsCtrl', function($scope) {
+				$scope.response = quests;
+			});
 		</script>
 	</body>
 </html>
